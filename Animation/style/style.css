@@ -1,0 +1,85 @@
+#wrap
+{
+	max-width: 1000px;
+	margin: auto;
+}
+h1{
+	text-align: center; 
+	background-color: whitesmoke; 
+	font-weight: bold;
+	line-height: 1.5em;
+	color: yellow;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	font-size: 3em;
+	margin: 25px 0 10px 0;
+	animation: title 5s ease infinite;
+}
+@keyframes title {
+    0%  {background-color: #EF7126; color: #F9E559;}
+    25%  {background-color: #6F3662; color: #FFFFFF;}
+    50%  {background-color: #9F6164; color: #F8DEBD;}
+    75%  {background-color: #44B3C2; color: #FFFFFF;}
+    100% {background-color: #218C8D; color: #F9E559;}
+}
+@keyframes bottom{
+	0%{ opacity: 0; transform: translateX(1000px);}
+	
+	30%{ opacity: 0.8;transform: translateX(800px);}
+	60%{ opacity: 1; transform: translateX(800px);}
+	
+	100%{ opacity: 0;transform: translateX(400px);}
+}
+@keyframes img{
+	0%{ opacity: 0;  transform: rotate(10deg);}
+	
+	100%{ opacity: 1;transform: rotate(360deg);}
+}
+.col{
+	float: left;
+	width: 33.33%;
+	margin-bottom: 10px;
+}
+.thumb1, .thumb2{
+	border: 1px solid #ddd;
+	cursor: pointer;
+
+}
+.thumb2 {
+	overflow: hidden;
+}
+.thumb1 img, .thumb2 img {
+	vertical-align: middle;
+
+	width: 100%;
+	height: 280px;
+}
+.thumb1 {
+	padding: 4px;
+	transition: all 1s ease;
+}
+.thumb2  img {
+	transition: all 1s linear;
+}
+.thumb1:hover{
+	transform: translateY(-5px);
+	box-shadow: 2px 5px 5px 0px red;
+}
+.thumb2:hover img {
+	transform: scale(1.2);
+	opacity: 0.8;
+}
+p{
+	font-family: "Times New Roman", Georgia, Serif;
+	font-size: 20px;
+	font-weight: bold;
+}
+#divbot{
+	height: 50px;
+	width: 100%;
+	animation: bottom 10s ease infinite;
+}
+img{
+	animation: img 3s ease;
+}
+
