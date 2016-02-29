@@ -12,39 +12,34 @@
 	height: 300px;
 	margin: 10% auto;
 }
-@-webkit-keyframes moveleft{
+@keyframes moveleft{
 	0% {
-       -webkit-transform: perspective(300) rotateY(0deg);
-       -webkit-transform-origin: 0% 0%;
+       transform: perspective(300) rotateY(0deg);
+       transform-origin: 0% 0%;
        width: 500px;
        opacity: 1;
     }
-    40% {
-       -webkit-transform: perspective(300) rotateY(0deg);
-        -webkit-transform-origin: 0% 0%;
+    100% {
+       transform: perspective(300) rotateY(0deg);
+        transform-origin: 0% 0%;
         width: 50px;
         opacity: 0;
-    }
-    100%{
-    	opacity: 0;
-    	overflow: visible;
+        top:-1000px;
     }
 }
-@-webkit-keyframes moveright{
+@keyframes moveright{
 	0% {
-       -webkit-transform: perspective(300) rotateY(0deg);
-       -webkit-transform-origin: 0% 0%;
+       transform: perspective(300) rotateY(0deg);
+       transform-origin: 0% 0%;
        width: 500px;
        opacity: 1;
     }
-    40% {
-       -webkit-transform: perspective(300) rotateY(0deg);
-        -webkit-transform-origin: 0% 0%;
+    100% {
+       transform: perspective(300) rotateY(0deg);
+        transform-origin: 0% 0%;
         width: 50px;
         opacity: 0;
-    }
-    100%{
-    	opacity: 0;
+        top:-1000px;
     }
 }
 
@@ -54,8 +49,8 @@
 	height: 300px;
 	top: 0;
 	left: 0;
-	animation-delay: 10s;
-	animation: moveleft 10s ease infinite alternate;
+	animation: moveleft 10s;
+  animation-fill-mode: forwards;
 }
 #right {
 	position: absolute;
@@ -63,8 +58,8 @@
 	height: 300px;
 	top: -1px;
 	right: 0;
-	animation-delay: 10s;
-	animation: moveright 10s  ease  infinite alternate; 
+	animation: moveright 10s; 
+  animation-fill-mode: forwards;
 }
 .lrimage{
 	width: 100%;
