@@ -1,4 +1,5 @@
-body { background-color:#333; }
+body { background-color:#FFF; 
+}
 #snow{
 	background: none;
 	font-family: Androgyne;
@@ -9,6 +10,7 @@ body { background-color:#333; }
 	top: 0;
 	width: 100%;
 	z-index:1;
+	background-color:rgba(9, 122, 138, 0.93);
 	-webkit-animation: snow 10s linear infinite;
 	-moz-animation: snow 10s linear infinite;
 	-ms-animation: snow 10s linear infinite;
