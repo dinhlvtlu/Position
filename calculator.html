@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	.button{
+		width: 50px; 
+		height: 18px; 
+		margin:10px;
+		text-align: center;
+	}
+	#enterNumber{
+		text-align: right;
+	}
+	#AC {
+		background-color: red;
+	}
+	#enterNumber{
+		margin-top: 10px;
+		height: 30px;
+	}
+	form{
+		border:2px solid green; 
+		width: 300px; 
+		height: 400px;
+	}
+</style>
+<body>
+<script>
+	function clickNumber(active)
+	{
+		// alert("a");
+		var giatrihientai = document.getElementById('enterNumber').value;
+		if(giatrihientai==0)
+		{
+			giatrihientai = document.getElementById(active).value;
+			document.getElementById('enterNumber').value = giatrihientai;
+		}
+		else
+			{
+				var	number = document.getElementById(active).value;
+				giatrihientai = giatrihientai+number;
+				document.getElementById('enterNumber').value = giatrihientai;
+			}
+	}
+	function res(id)
+	{
+		var valuecur = document.getElementById(id).value;
+		if (valuecur != 0) {
+			document.getElementById(id).value = valuecur;
+		}
+		else
+			document.getElementById(id).value = "";
+	}
+	
+	function operations(id) {
+		// body...
+		var enterNumber = document.getElementById('enterNumber').value;
+		enterNumber = enterNumber.toString();
+		var numberBefore = document.getElementById('numberBefore').innerHTML;
+
+		var result = document.getElementById('result').innerHTML;
+		document.getElementById('enterNumber').value=0;
+		if (enterNumber.search(".") > -1) {
+			enterNumber = parseFloat(enterNumber);
+
+			result = parseFloat(result);
+		}
+		else
+		{
+			enterNumber = parseInt(enterNumber);
+			result = parseFloat(result);
+		}
+		switch(id)
+		{
+			case "math+":
+				if (numberBefore == 0) 
+				{
+						result = result + enterNumber;
+						document.getElementById('numberBefore').innerHTML=result + " + ";
+						document.getElementById('result').innerHTML=result;
+				}
+				else
+				{
+					if (enterNumber==0) {
+						document.getElementById('result').innerHTML=result;
+						if (numberBefore[numberBefore.length-2] == "-") {
+							var str = document.getElementById('numberBefore').innerHTML;
+							var len = str.length -3;
+							str = str.substring(0,len);
+							var str = document.getElementById('numberBefore').innerHTML=str + " + ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "/") {
+							var str = document.getElementById('numberBefore').innerHTML;
+							var len = str.length -3;
+							str = str.substring(0,len);
+							var str = document.getElementById('numberBefore').innerHTML=str + " + ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "*") {
+							var str = document.getElementById('numberBefore').innerHTML;
+							var len = str.length -3;
+							str = str.substring(0,len);
+							var str = document.getElementById('numberBefore').innerHTML=str + " + ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "+") {
+							document.getElementById('numberBefore').innerHTML=numberBefore;
+						}
+						else
+						{
+							document.getElementById('numberBefore').innerHTML=numberBefore + " + ";
+						}
+					}
+					else
+					{
+						if (numberBefore[numberBefore.length-2] == "-") {
+						result = result - enterNumber;
+						document.getElementById('result').innerHTML=result;
+						document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )+ ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "*") {
+						result = result * enterNumber;
+						document.getElementById('result').innerHTML=result;
+						document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )+ ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "/") {
+						result = result / enterNumber;
+						document.getElementById('result').innerHTML=result;
+						document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )+ ";
+						}
+						// else if (numberBefore[numberBefore.length-2] == " ") {
+						// 	document.getElementById('numberBefore').innerHTML=numberBefore+ " + ";
+						// }
+						// else if (numberBefore[numberBefore.length-1] != "-" || numberBefore[numberBefore.length-1] != "*" || numberBefore[numberBefore.length-1] != "/") {
+						// 	result = result + enterNumber;
+						// 	document.getElementById('result').innerHTML=result;
+						// 	document.getElementById('numberBefore').innerHTML=numberBefore+ " +1 " + enterNumber;
+						// }
+						else
+						{
+						result = result + enterNumber;
+						document.getElementById('result').innerHTML=result;
+						document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )+ ";
+						}
+					}
+					
+				}
+				break;
+			case "math-":
+				// if (numberBefore == 0) {
+				// 	result = enterNumber - result;
+				// 	document.getElementById('numberBefore').innerHTML=result + " - ";
+				// 	document.getElementById('result').innerHTML=result;
+				// }
+				// else if (numberBefore[numberBefore.length-2] == "+") {
+				// 	result = result + enterNumber;
+				// 	document.getElementById('result').innerHTML=result;
+				// 	document.getElementById('numberBefore').innerHTML=numberBefore+enterNumber + " - ";
+				// }
+				// else if (numberBefore[numberBefore.length-2] == "*") {
+				// 	result = result * enterNumber;
+				// 	document.getElementById('result').innerHTML=result;
+				// 	document.getElementById('numberBefore').innerHTML=numberBefore+enterNumber + " - ";
+				// }
+				// else if (numberBefore[numberBefore.length-2] == "/") {
+				// 	result = result / enterNumber;
+				// 	document.getElementById('result').innerHTML=result;
+				// 	document.getElementById('numberBefore').innerHTML=numberBefore+enterNumber + " - ";
+				// }
+				// else
+				// {
+				// 	result = result - enterNumber;
+				// 	document.getElementById('result').innerHTML=result;
+				// 	document.getElementById('numberBefore').innerHTML=numberBefore+enterNumber + " - ";
+				// }
+				//-----
+				if (numberBefore == 0) 
+				{
+						result = enterNumber - result;
+						document.getElementById('numberBefore').innerHTML=result + " - ";
+						document.getElementById('result').innerHTML=result;
+				}
+				else
+				{
+					if (enterNumber==0) {
+						document.getElementById('result').innerHTML=result;
+						if (numberBefore[numberBefore.length-2] == "+") {
+							var str = document.getElementById('numberBefore').innerHTML;
+							var len = str.length -3;
+							str = str.substring(0,len);
+							var str = document.getElementById('numberBefore').innerHTML=str + " - ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "/") {
+							var str = document.getElementById('numberBefore').innerHTML;
+							var len = str.length -3;
+							str = str.substring(0,len);
+							var str = document.getElementById('numberBefore').innerHTML=str + " - ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "*") {
+							var str = document.getElementById('numberBefore').innerHTML;
+							var len = str.length -3;
+							str = str.substring(0,len);
+							var str = document.getElementById('numberBefore').innerHTML=str + " - ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "-") {
+							document.getElementById('numberBefore').innerHTML=numberBefore;
+						}
+						else
+						{
+							document.getElementById('numberBefore').innerHTML=numberBefore + " - ";
+						}
+					}
+					else
+					{
+						if (numberBefore[numberBefore.length-2] == "+") {
+							result = result + enterNumber;
+							document.getElementById('result').innerHTML=result;
+							document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )- ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "*") {
+							result = result * enterNumber;
+							document.getElementById('result').innerHTML=result;
+							document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )- ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "/") {
+							result = result / enterNumber;
+							document.getElementById('result').innerHTML=result;
+							document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )- ";
+						}
+						else
+						{
+							result = result - enterNumber;
+							document.getElementById('result').innerHTML=result;
+							document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )- ";
+						}
+					}	
+				}
+				break;
+			case "math*":
+				if (numberBefore == 0) 
+				{
+						result = enterNumber;
+						document.getElementById('numberBefore').innerHTML=result + " * ";
+						document.getElementById('result').innerHTML=result;
+				}
+				else
+				{
+					if (enterNumber==0) {
+						document.getElementById('result').innerHTML=result;
+						if (numberBefore[numberBefore.length-2] == "+") {
+							var str = document.getElementById('numberBefore').innerHTML;
+							var len = str.length -3;
+							str = str.substring(0,len);
+							var str = document.getElementById('numberBefore').innerHTML=str + " * ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "/") {
+							var str = document.getElementById('numberBefore').innerHTML;
+							var len = str.length -3;
+							str = str.substring(0,len);
+							var str = document.getElementById('numberBefore').innerHTML=str + " * ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "-") {
+							var str = document.getElementById('numberBefore').innerHTML;
+							var len = str.length -3;
+							str = str.substring(0,len);
+							var str = document.getElementById('numberBefore').innerHTML=str + " * ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "*") {
+							document.getElementById('numberBefore').innerHTML=numberBefore;
+						}
+						else
+						{
+							document.getElementById('numberBefore').innerHTML=numberBefore + " * ";
+						}
+					}
+					else
+					{
+						if (numberBefore[numberBefore.length-2] == "+") {
+							result = result + enterNumber;
+							document.getElementById('result').innerHTML=result;
+							document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )* ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "-") {
+							result = result - enterNumber;
+							document.getElementById('result').innerHTML=result;
+							document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )* ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "/") {
+							result = result / enterNumber;
+							document.getElementById('result').innerHTML=result;
+							document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )* ";
+						}
+						else
+						{
+							result = result * enterNumber;
+							document.getElementById('result').innerHTML=result;
+							document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )* ";
+						}
+					}	
+				}
+				break;
+			case "math/":
+				if (numberBefore == 0) 
+				{
+						result = enterNumber;
+						document.getElementById('numberBefore').innerHTML=result + " / ";
+						document.getElementById('result').innerHTML=result;
+				}
+				else
+				{
+					if (enterNumber==0) {
+						document.getElementById('result').innerHTML=result;
+						if (numberBefore[numberBefore.length-2] == "+") {
+							var str = document.getElementById('numberBefore').innerHTML;
+							var len = str.length -3;
+							str = str.substring(0,len);
+							var str = document.getElementById('numberBefore').innerHTML=str + " / ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "*") {
+							var str = document.getElementById('numberBefore').innerHTML;
+							var len = str.length -3;
+							str = str.substring(0,len);
+							var str = document.getElementById('numberBefore').innerHTML=str + " / ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "-") {
+							var str = document.getElementById('numberBefore').innerHTML;
+							var len = str.length -3;
+							str = str.substring(0,len);
+							var str = document.getElementById('numberBefore').innerHTML=str + " / ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "/") {
+							document.getElementById('numberBefore').innerHTML=numberBefore;
+						}
+						else
+						{
+							document.getElementById('numberBefore').innerHTML=numberBefore + " / ";
+						}
+					}
+					else
+					{
+						if (numberBefore[numberBefore.length-2] == "+") {
+							result = result + enterNumber;
+							document.getElementById('result').innerHTML=result;
+							document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )/ ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "-") {
+							result = result - enterNumber;
+							document.getElementById('result').innerHTML=result;
+							document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )/ ";
+						}
+						else if (numberBefore[numberBefore.length-2] == "*") {
+							result = result * enterNumber;
+							document.getElementById('result').innerHTML=result;
+							document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )/ ";
+						}
+						else
+						{
+							result = result / enterNumber;
+							document.getElementById('result').innerHTML=result;
+							document.getElementById('numberBefore').innerHTML="( " +numberBefore+enterNumber + " )/ ";
+						}
+					}	
+				}
+
+				break;
+			case "actresult":
+				if (enterNumber==0) {
+					if (parseInt(numberBefore[numberBefore.length-1]) >= 0 &&  parseInt(numberBefore[numberBefore.length-1]) <= 9) {
+						document.getElementById('result').innerHTML=result;
+						document.getElementById('numberBefore').innerHTML=numberBefore;
+					}
+					else
+					{	
+						var str = document.getElementById('numberBefore').innerHTML;
+						var len = str.length -2;
+						str = str.substring(0,len);
+						document.getElementById('numberBefore').innerHTML=str;
+					}
+				}
+				else
+				{
+					if (numberBefore[numberBefore.length-2] == "-") {
+					result = result - enterNumber;
+					document.getElementById('result').innerHTML=result;
+					document.getElementById('numberBefore').innerHTML=numberBefore+enterNumber;
+					}
+					else if (numberBefore[numberBefore.length-2] == "+") {
+					result = result + enterNumber;
+					document.getElementById('result').innerHTML=result;
+					document.getElementById('numberBefore').innerHTML=numberBefore+enterNumber;
+					}
+					if (numberBefore[numberBefore.length-2] == "*") {
+					result = result * enterNumber;
+					document.getElementById('result').innerHTML=result;
+					document.getElementById('numberBefore').innerHTML=numberBefore+enterNumber;
+					}
+					if (numberBefore[numberBefore.length-2] == "/") {
+					result = result / enterNumber;
+					document.getElementById('result').innerHTML=result;
+					document.getElementById('numberBefore').innerHTML=numberBefore+enterNumber;
+					}
+				}
+				break;
+			case "pow":
+				if (enterNumber != 0 && numberBefore ==0 && result ==0) {
+					var result = Math.pow(enterNumber,2);
+					document.getElementById('numberBefore').innerHTML = enterNumber + "^2";
+					document.getElementById('result').innerHTML=result;
+				}
+				else if (enterNumber==0 && numberBefore!=0 && result !=0) {
+					result = Math.pow(result,2);
+					document.getElementById('numberBefore').innerHTML = "( " + numberBefore +" )^2";
+					document.getElementById('result').innerHTML=result;
+				}
+				else if (enterNumber==0 && numberBefore!=0 && result ==0) {
+					result = Math.pow(result,2);
+					document.getElementById('numberBefore').innerHTML = "( " + numberBefore +" )^2";
+					document.getElementById('result').innerHTML=result;
+				}
+				else if (numberBefore[numberBefore.length-2] == "-" && enterNumber!=0) {
+					result = result - Math.pow(enterNumber,2);
+					document.getElementById('result').innerHTML=result;
+					document.getElementById('numberBefore').innerHTML=numberBefore+enterNumber+"^2";
+					}
+				else if (numberBefore[numberBefore.length-2] == "+" && enterNumber!=0) {
+					result = result + Math.pow(enterNumber,2);
+					document.getElementById('result').innerHTML=result;
+					document.getElementById('numberBefore').innerHTML=numberBefore+enterNumber+"^2";
+					}
+				else if (numberBefore[numberBefore.length-2] == "*" && enterNumber!=0) {
+					result = result * Math.pow(enterNumber,2);
+					document.getElementById('result').innerHTML=result;
+					document.getElementById('numberBefore').innerHTML=numberBefore+enterNumber+"^2";
+					}
+				else if (numberBefore[numberBefore.length-2] == "/") {
+					result = result / Math.pow(enterNumber,2);
+					document.getElementById('result').innerHTML=result;
+					document.getElementById('numberBefore').innerHTML=numberBefore+enterNumber+"^2";
+					}
+				break;
+			case "sqrt":
+				if (enterNumber != 0 && numberBefore ==0 && result ==0) {
+					var result = Math.sqrt(enterNumber);
+					document.getElementById('numberBefore').innerHTML = "&#10003;"+enterNumber;
+					document.getElementById('result').innerHTML=result;
+				}
+				else if (enterNumber==0 && numberBefore!=0 && result !=0) {
+					result = Math.sqrt(enterNumber);
+					document.getElementById('numberBefore').innerHTML = "&#10003;( " + numberBefore +" )";
+					document.getElementById('result').innerHTML=result;
+				}
+				else if (enterNumber==0 && numberBefore!=0 && result ==0) {
+					result = Math.sqrt(enterNumber);
+					document.getElementById('numberBefore').innerHTML = "&#10003;( " + numberBefore +" )";
+					document.getElementById('result').innerHTML=result;
+				}
+				else if (numberBefore[numberBefore.length-2] == "-" && enterNumber!=0) {
+					result = result - Math.pow(enterNumber,2);
+					document.getElementById('result').innerHTML=result;
+					document.getElementById('numberBefore').innerHTML="&#10003;"+numberBefore+enterNumber;
+					}
+				else if (numberBefore[numberBefore.length-2] == "+" && enterNumber!=0) {
+					result = result + Math.sqrt(enterNumber);
+					document.getElementById('result').innerHTML=result;
+					document.getElementById('numberBefore').innerHTML="&#10003;"+numberBefore+enterNumber;
+					}
+				else if (numberBefore[numberBefore.length-2] == "*" && enterNumber!=0) {
+					result = result * Math.sqrt(enterNumber);
+					document.getElementById('result').innerHTML=result;
+					document.getElementById('numberBefore').innerHTML="&#10003;"+numberBefore+enterNumber;
+					}
+				else if (numberBefore[numberBefore.length-2] == "/") {
+					result = result / Math.sqrt(enterNumber);
+					document.getElementById('result').innerHTML=result;
+					document.getElementById('numberBefore').innerHTML="&#10003;"+numberBefore+enterNumber;
+					}
+				break;
+		}
+	}
+	function resAll(id) {
+		// body...
+		document.getElementById('enterNumber').value = 0;
+		document.getElementById('numberBefore').innerHTML='0';
+		var result = document.getElementById('result').innerHTML= 0;
+
+	}
+	function deleteNumber(id) {
+		// body...
+		var enterNumber = document.getElementById('enterNumber').value;
+		enterNumber = enterNumber.toString();
+		enterNumber = enterNumber.substring(0,enterNumber.length-1);
+		document.getElementById('enterNumber').value = enterNumber;
+	}
+</script>
+<center><form>
+	<center><input type="text" id="enterNumber" value="0" onclick ="res('enterNumber')"></input></center>
+	<br/>
+	<label id="numberBefore">0</label>
+	<br/><br/><br/>
+	<p>Ket qua: <label id="result" style="text-align: left;">0</label></p>
+	<br/>
+	<!-- ----------------- -->
+
+	<input type="button" id="number1" value="1" class="button" onclick="clickNumber('number1')"></input>
+	<input type="button" id="number2" value="2" class="button" onclick="clickNumber('number2')"></input>
+	<input type="button" id="number3" value="3" class="button" onclick="clickNumber('number3')"></input>
+	<input type="button" id="math+" value="+" class="button" onclick="operations('math+')"></input>
+	<br/>
+	<!-- ----------------- -->
+
+	<input type="button" id="number4" value="4" class="button" onclick="clickNumber('number4')"></input>
+	<input type="button" id="number5" value="5" class="button" onclick="clickNumber('number5')"></input>
+	<input type="button" id="number6" value="6" class="button" onclick="clickNumber('number6')"></input>
+	<input type="button" id="math-" value="-" class="button" onclick="operations('math-')"></input>
+	<br/>
+	<!-- ----------------- -->
+
+	<input type="button" id="number7" value="7" class="button" onclick="clickNumber('number7')"></input>
+	<input type="button" id="number8" value="8" class="button" onclick="clickNumber('number8')"></input>
+	<input type="button" id="number9" value="9" class="button" onclick="clickNumber('number9')"></input>
+	<input type="button" id="math*" value="*" class="button" onclick="operations('math*')"></input>
+	<br/>
+	<!-- ----------------- -->
+
+	<input type="button" id="number0" value="0" class="button" onclick="clickNumber('number0')"></input>
+	<input type="button" id="dot" value="." class="button" onclick="clickNumber('dot')"></input>
+	<input type="button" id="actresult" value="=" class="button" onclick="operations('actresult')"></input>
+	<input type="button" id="math/" value="/" class="button" onclick="operations('math/')"></input>
+	<br/>
+	<!-- ----------------- -->
+	<input type="button" id="AC" value="AC" class="button" onclick="resAll('AC')"></input>
+	<input type="button" id="back" value="&larr;" class="button" onclick="deleteNumber('back')"></input>
+	<input type="button" id="row" value="^2" class="button" onclick="operations('pow')"></input>
+	<input type="button" id="sqrt" value="&#10003;" class="button" onclick="operations('sqrt')"></input>
+</form></center>
+</body>
+</html>
