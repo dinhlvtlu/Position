@@ -118,6 +118,7 @@ ul#navmenu .sub1 li:hover .sub2 {
 	height: 500px;
 	border: 5px solid white;
 	animation: changebanner 5s infinite alternate;
+	box-sizing: border-box;
 }
 @keyframes changebanner{
 	0%{
