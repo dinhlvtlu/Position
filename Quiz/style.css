@@ -55,6 +55,7 @@ body { background-color:#FFF;
 .dapan{
 	width: 400px;
 	margin-left: 55px;
+	cursor: pointer; cursor: hand;
 }
 #infoAnswer{
 	float: left;
