@@ -1,9 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Tinos&subset=latin,vietnamese);
+
 *{
 	padding: 0px;
 	margin: 0px;
 }
 body{
-	font-family: verdana;
+
+	font-family: "Tinos" !important;
 	width: 100%;
 	height: 100%;
 	background-image:url("http://hinhnenhd.com/wp-content/uploads/2014/05/407390-1920x1080.jpg");
