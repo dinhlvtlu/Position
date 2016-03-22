@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz</title>
+	<link rel="stylesheet" type="text/css" href="style.css" \>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"\>
+	<meta charset="UTF-8"\>
+	
+</head>
+<body>
+	<div id="snow">
+    <button type="button" class="btn btn-danger btn-lg" onclick="changeTheme()" id="changeTheme">Change Theme</button>
+		<button type="button" class="btn btn-danger btn-block btn-lg" onclick="batdau()" id="batdau">Start</button>
+		<div class="progress" id="rollSuccess">
+  <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar"
+  	aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" id="roll">
+  </div>
+</div>
+		<div id="form"> 
+			<p id="Cauhoi" class="alert alert-success"></p>
+				<div class="alert alert-success dapan" onclick="kiemtradapan('CauA')">
+    				<p id="CauA"></p>
+  				</div>
+  				<div class="alert alert-success dapan" onclick="kiemtradapan('CauB')">
+    				<p id="CauB"></p>
+  				</div>
+  				<div class="alert alert-success dapan" onclick="kiemtradapan('CauC')">
+    				<p id="CauC"></p>
+  				</div>
+  				<div class="alert alert-success dapan" onclick="kiemtradapan('CauD')">
+    				<p id="CauD"></p>
+  				</div>
+  				<div class="alert alert-success" style="height: 80px;" id="hopthongbao">
+    				<img src="" height="50px" id="iconCheck" style="float: left;">
+    				<strong><p id="infoAnswer"></p></strong>
+    				<button type="button" class="btn btn-success" id="next" style="float:right; margin-top: 6px;" onclick="next()">Tiếp &raquo;</button>
+  				</div>
+		</div>
+	</div>
+  
+  <script src="jquery-2.2.2.min.js"></script>
+  <script src="jvscr.js"></script>
+</body>
+</html>
